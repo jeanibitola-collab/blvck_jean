@@ -1,4 +1,15 @@
 import { projects, testimonials } from "@/data/projects";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa6";
+import EnquiryForm from "@/components/EnquiryForm";
+import Header from "@/components/Header";
+
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFirebase,
+  SiExpo,
+} from "react-icons/si";
 
 const stack = [
   "HTML",
@@ -16,27 +27,7 @@ const stack = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
-      {/* Navbar */}
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-        <span className="text-lg font-bold">Olakunle Ibitola</span>
-        <div className="flex gap-5 text-sm text-slate-300">
-          <a href="#projects" className="hover:text-white">
-            Projects
-          </a>
-          <a href="#services" className="hover:text-white">
-            Services
-          </a>
-          <a href="#testimonials" className="hover:text-white">
-            Testimonials
-          </a>
-          <a href="#about" className="hover:text-white">
-            About
-          </a>
-          <a href="#contact" className="hover:text-white">
-            Contact
-          </a>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 py-20">
@@ -118,9 +109,10 @@ export default function Home() {
                   <a
                     href={p.githubUrl}
                     target="_blank"
-                    className="text-sky-400 hover:underline"
+                    rel="noopener noreferrer"
+                    className="ml-4 text-slate-300 underline hover:text-white"
                   >
-                    Code →
+                    GitHub →
                   </a>
                 )}
               </div>
@@ -168,28 +160,68 @@ export default function Home() {
         </a>
       </section>
 
-      {testimonials.length > 0 && (
-  <section id="testimonials" className="mx-auto max-w-5xl px-6 py-16">
-    <h2 className="text-3xl font-bold">What clients say</h2>
+      <section id="why" className="mx-auto max-w-5xl px-6 py-16">
+        <h2 className="text-3xl font-bold">Why work with me</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {[
+            {
+              t: "Real payments",
+              d: "I build stores with secure Paystack checkout, orders and an admin page.",
+            },
+            {
+              t: "Fast replies",
+              d: "Chat with me on WhatsApp and get clear answers and updates.",
+            },
+            {
+              t: "Full ownership",
+              d: "From design to live site, you deal with one person.",
+            },
+            {
+              t: "Mobile first",
+              d: "Your site works well on phones, where most Nigerian customers are.",
+            },
+            {
+              t: "Built to last",
+              d: "Clean Next.js and TypeScript code that is easy to update later.",
+            },
+            {
+              t: "Always learning",
+              d: "I keep improving my skills, including AI and data science.",
+            },
+          ].map((x) => (
+            <div
+              key={x.t}
+              className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
+            >
+              <h3 className="text-lg font-semibold text-emerald-400">{x.t}</h3>
+              <p className="mt-2 text-slate-300">{x.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    <div className="mt-8 grid gap-6 md:grid-cols-2">
-      {testimonials.map((t) => (
-        <figure
-          key={t.name}
-          className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
-        >
-          <blockquote className="text-lg leading-relaxed text-slate-200">
-            “{t.quote}”
-          </blockquote>
-          <figcaption className="mt-4">
-            <p className="font-semibold">{t.name}</p>
-            <p className="text-sm text-[#d0a850]">{t.role}</p>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
-  </section>
-)}
+      {testimonials.length > 0 && (
+        <section id="testimonials" className="mx-auto max-w-5xl px-6 py-16">
+          <h2 className="text-3xl font-bold">What clients say</h2>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {testimonials.map((t) => (
+              <figure
+                key={t.name}
+                className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
+              >
+                <blockquote className="text-lg leading-relaxed text-slate-200">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-4">
+                  <p className="font-semibold">{t.name}</p>
+                  <p className="text-sm text-[#d0a850]">{t.role}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* About + stack */}
       <section id="about" className="mx-auto max-w-5xl px-6 py-16">
@@ -203,26 +235,78 @@ export default function Home() {
             className="h-48 w-48 flex-shrink-0 rounded-full border-4 border-emerald-500/40 object-cover shadow-lg"
           />
 
+          <section id="learning" className="mx-auto max-w-5xl px-6 py-16">
+  <h2 className="text-3xl font-bold">Learning</h2>
+  <div className="mt-8 grid gap-6 md:grid-cols-2">
+    {[
+      {
+        title: "Front-end web development",
+        where: "Early Code Institute",
+        when: "2026",
+        status: "Completed",
+        skills: "HTML, CSS, JavaScript, TypeScript, React, Next.js",
+      },
+    ].map((l) => (
+      <div key={l.title} className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-semibold">{l.title}</h3>
+          <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-400">
+            {l.status}
+          </span>
+        </div>
+        <p className="mt-1 text-sm text-slate-400">{l.where} · {l.when}</p>
+        <p className="mt-3 text-slate-300">Skills: {l.skills}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section className="mx-auto max-w-5xl px-6 py-16">
+  <h2 className="text-3xl font-bold">Currently building</h2>
+  <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <div className="flex items-center justify-between">
+      <h3 className="text-lg font-semibold">AIG Global Services updates</h3>
+      <span className="text-sm text-emerald-400">In progress</span>
+    </div>
+    <div className="mt-4 h-2 w-full rounded-full bg-slate-800">
+      <div className="h-2 rounded-full bg-emerald-400" style={{ width: "70%" }} />
+    </div>
+    <p className="mt-2 text-sm text-slate-400">80% complete</p>
+  </div>
+</section>
+
           {/* Text */}
           <div>
             <p className="text-slate-400">
               I'm a web and mobile developer with a background in law and
               experience in AI data annotation. I love turning ideas into
-              working products, from e-commerce sites with payments to mobile
+              working products, from business websites, e-commerce sites with payments to mobile
               games under my studio, Blvckjean Games.
             </p>
 
             <h3 className="mt-8 text-xl font-semibold">Tech stack</h3>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {stack.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
+           <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-5">
+  {[
+    { n: "HTML", i: <FaHtml5 /> },
+    { n: "CSS", i: <FaCss3Alt /> },
+    { n: "JavaScript", i: <FaJs /> },
+    { n: "TypeScript", i: <SiTypescript /> },
+    { n: "React", i: <FaReact /> },
+    { n: "Next.js", i: <SiNextdotjs /> },
+    { n: "Tailwind", i: <SiTailwindcss /> },
+    { n: "React Native", i: <FaReact /> },
+    { n: "Expo", i: <SiExpo /> },
+    { n: "Firebase", i: <SiFirebase /> },
+  ].map((s) => (
+    <div
+      key={s.n}
+      className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 p-4"
+    >
+      <span className="text-3xl text-emerald-400">{s.i}</span>
+      <span className="text-sm">{s.n}</span>
+    </div>
+  ))}
+</div>
           </div>
         </div>
       </section>
@@ -255,6 +339,7 @@ export default function Home() {
             GitHub
           </a>
         </div>
+        <EnquiryForm />
       </section>
 
       <footer className="border-t border-slate-800 py-8 text-center text-sm text-slate-500">
