@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://olakunle-ibitola.vercel.app"),
+  metadataBase: new URL("https://blvckjean.tech"),
   title: "Olakunle Ibitola | Web & Mobile Developer",
   description:
     "I build online stores, business websites and mobile games with React, Next.js and TypeScript.",
@@ -22,7 +22,7 @@ export const metadata = {
     title: "Olakunle Ibitola | Web & Mobile Developer",
     description:
       "Online stores, business websites and mobile games with React, Next.js and TypeScript.",
-    url: "https://olakunle-ibitola.vercel.app",
+    url: "https://blvckjean.tech",
     siteName: "Olakunle Ibitola",
     images: [
       {

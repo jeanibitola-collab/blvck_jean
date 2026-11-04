@@ -75,7 +75,7 @@ export default function Home() {
                 <img
                   src={p.image}
                   alt={p.title}
-                  className="h-48 w-full object-contain bg-black/5"
+                  className="mb-4 aspect-[4/3] w-full rounded-xl object-cover object-top"
                 />
               ) : (
                 <div className="mb-4 flex h-44 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 to-sky-500/20 text-2xl font-bold">
