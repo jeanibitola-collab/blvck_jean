@@ -235,79 +235,154 @@ export default function Home() {
             className="h-48 w-48 flex-shrink-0 rounded-full border-4 border-emerald-500/40 object-cover shadow-lg"
           />
 
-          <section id="learning" className="mx-auto max-w-5xl px-6 py-16">
-  <h2 className="text-3xl font-bold">Learning</h2>
-  <div className="mt-8 grid gap-6 md:grid-cols-2">
-    {[
-      {
-        title: "Front-end web development",
-        where: "Early Code Institute",
-        when: "2026",
-        status: "Completed",
-        skills: "HTML, CSS, JavaScript, TypeScript, React, Next.js",
-      },
-    ].map((l) => (
-      <div key={l.title} className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">{l.title}</h3>
-          <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-400">
-            {l.status}
-          </span>
-        </div>
-        <p className="mt-1 text-sm text-slate-400">{l.where} · {l.when}</p>
-        <p className="mt-3 text-slate-300">Skills: {l.skills}</p>
-      </div>
-    ))}
-  </div>
-</section>
-
-<section className="mx-auto max-w-5xl px-6 py-16">
-  <h2 className="text-3xl font-bold">Currently building</h2>
-  <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
-    <div className="flex items-center justify-between">
-      <h3 className="text-lg font-semibold">AIG Global Services updates</h3>
-      <span className="text-sm text-emerald-400">In progress</span>
-    </div>
-    <div className="mt-4 h-2 w-full rounded-full bg-slate-800">
-      <div className="h-2 rounded-full bg-emerald-400" style={{ width: "70%" }} />
-    </div>
-    <p className="mt-2 text-sm text-slate-400">80% complete</p>
-  </div>
-</section>
-
           {/* Text */}
           <div>
             <p className="text-slate-400">
               I'm a web and mobile developer with a background in law and
               experience in AI data annotation. I love turning ideas into
-              working products, from business websites, e-commerce sites with payments to mobile
-              games under my studio, Blvckjean Games.
+              working products, from business websites, e-commerce sites with
+              payments to mobile games under my studio, Blvckjean Games.
             </p>
 
             <h3 className="mt-8 text-xl font-semibold">Tech stack</h3>
-           <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-5">
-  {[
-    { n: "HTML", i: <FaHtml5 /> },
-    { n: "CSS", i: <FaCss3Alt /> },
-    { n: "JavaScript", i: <FaJs /> },
-    { n: "TypeScript", i: <SiTypescript /> },
-    { n: "React", i: <FaReact /> },
-    { n: "Next.js", i: <SiNextdotjs /> },
-    { n: "Tailwind", i: <SiTailwindcss /> },
-    { n: "React Native", i: <FaReact /> },
-    { n: "Expo", i: <SiExpo /> },
-    { n: "Firebase", i: <SiFirebase /> },
-  ].map((s) => (
-    <div
-      key={s.n}
-      className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 p-4"
-    >
-      <span className="text-3xl text-emerald-400">{s.i}</span>
-      <span className="text-sm">{s.n}</span>
-    </div>
-  ))}
-</div>
+            <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-5">
+              {[
+                { n: "HTML", i: <FaHtml5 /> },
+                { n: "CSS", i: <FaCss3Alt /> },
+                { n: "JavaScript", i: <FaJs /> },
+                { n: "TypeScript", i: <SiTypescript /> },
+                { n: "React", i: <FaReact /> },
+                { n: "Next.js", i: <SiNextdotjs /> },
+                { n: "Tailwind", i: <SiTailwindcss /> },
+                { n: "React Native", i: <FaReact /> },
+                { n: "Expo", i: <SiExpo /> },
+                { n: "Firebase", i: <SiFirebase /> },
+              ].map((s) => (
+                <div
+                  key={s.n}
+                  className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 p-4"
+                >
+                  <span className="text-3xl text-emerald-400">{s.i}</span>
+                  <span className="text-sm">{s.n}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section id="learning" className="mx-auto max-w-5xl px-6 py-16">
+        <h2 className="text-3xl font-bold">Learning</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {[
+            {
+              title: "Front-end web development",
+              where: "Early Code Institute",
+              when: "2026",
+              status: "Completed",
+              skills: "HTML, CSS, JavaScript, TypeScript, React, Next.js",
+            },
+          ].map((l) => (
+            <div
+              key={l.title}
+              className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold">{l.title}</h3>
+                <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-400">
+                  {l.status}
+                </span>
+              </div>
+              <p className="mt-1 text-sm text-slate-400">
+                {l.where} · {l.when}
+              </p>
+              <p className="mt-3 text-slate-300">Skills: {l.skills}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <h2 className="text-3xl font-bold">Currently building</h2>
+        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold">
+              AIG Global Services updates
+            </h3>
+            <span className="text-sm text-emerald-400">In progress</span>
+          </div>
+          <div className="mt-4 h-2 w-full rounded-full bg-slate-800">
+            <div
+              className="h-2 rounded-full bg-emerald-400"
+              style={{ width: "70%" }}
+            />
+          </div>
+          <p className="mt-2 text-sm text-slate-400">80% complete</p>
+        </div>
+      </section>
+
+      <section id="certificates" className="mx-auto max-w-5xl px-6 py-16">
+        <h2 className="text-3xl font-bold">Certificates</h2>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {[
+            {
+              title: "Web Development in React and Next JS",
+              issuer: "Early Code Institute",
+              year: "2026",
+              file: "/early-code-certificate.pdf",
+            },
+            {
+              title: "Elements of Artificial Intelligence",
+              issuer: "Alexjots Global Publications",
+              year: "2026",
+              file: "/Alexjots-publications-certificate.pdf",
+            },
+            {
+              title: "Claude Code 101",
+              issuer: "Claude Academy",
+              year: "2026",
+              file: "/claude-101.pdf",
+              verifyUrl:
+                "https://academy.claude.com/verify/fdab733264635eb043df15712863bb07",
+            },
+            {
+              title: "Claude Code in action",
+              issuer: "Claude Academy",
+              year: "2026",
+              file: "/claude-certificate.pdf",
+              verifyUrl:
+                "https://academy.claude.com/verify/17335c8663e5b380294b72bc271be2d6",
+            },
+          ].map((c) => (
+            <div
+              key={c.title}
+              className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
+            >
+              <h3 className="text-lg font-semibold">{c.title}</h3>
+              <p className="mt-1 text-sm text-slate-400">
+                {c.issuer} · {c.year}
+              </p>
+              <a
+                href={c.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-emerald-400 underline"
+              >
+                View certificate →
+              </a>
+              {c.verifyUrl && (
+                <a
+                  href={c.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-4 text-slate-300 underline hover:text-white"
+                >
+                  Verify →
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
