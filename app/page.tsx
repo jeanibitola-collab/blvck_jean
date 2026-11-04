@@ -52,13 +52,6 @@ export default function Home() {
           >
             Hire me
           </a>
-          <a
-            href="/olakunle-ibitola-cv.pdf"
-            download
-            className="rounded-lg border border-emerald-500 px-5 py-3 font-semibold text-emerald-400 hover:bg-emerald-500/10"
-          >
-            Download CV
-          </a>
         </div>
       </section>
 

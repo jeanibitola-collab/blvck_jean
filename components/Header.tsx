@@ -31,6 +31,14 @@ export default function Header() {
           OLAKUNLE IBITOLA
         </a>
 
+        <a
+          href="/olakunle-ibitola-cv.pdf"
+          download
+          className="rounded-lg border border-emerald-400 px-4 py-2 text-sm font-semibold text-emerald-400 hover:bg-emerald-400 hover:text-black"
+        >
+          Download CV
+        </a>
+
         <nav className="hidden items-center gap-6 md:flex">
           {links.map((l) => (
             <a
@@ -80,6 +88,15 @@ export default function Header() {
               {l.label}
             </a>
           ))}
+
+          <a
+            href="/olakunle-ibitola-cv.pdf"
+            download
+            onClick={() => setOpen(false)}
+            className="block px-6 py-3 font-semibold text-emerald-400 hover:bg-slate-900"
+          >
+            Download CV
+          </a>
         </nav>
       )}
     </header>
