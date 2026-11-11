@@ -300,17 +300,17 @@ export default function Home() {
         <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold">
-              AIG Global Services updates
+              RTO
             </h3>
             <span className="text-sm text-emerald-400">In progress</span>
           </div>
           <div className="mt-4 h-2 w-full rounded-full bg-slate-800">
             <div
               className="h-2 rounded-full bg-emerald-400"
-              style={{ width: "70%" }}
+              style={{ width: "40%" }}
             />
           </div>
-          <p className="mt-2 text-sm text-slate-400">80% complete</p>
+          <p className="mt-2 text-sm text-slate-400">40% complete</p>
         </div>
       </section>
 

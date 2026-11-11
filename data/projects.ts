@@ -6,6 +6,8 @@ export type Project = {
   githubUrl?: string;
   image?: string;
   result?: string;
+  status?: string;
+
 };
 export type Testimonial = {
   quote: string;
@@ -78,7 +80,7 @@ export const projects: Project[] = [
     description:
       "Multi-page company website for a Nigerian business with six divisions: gadgets, homes, autos, currency exchange, solar installation and industrial machines. Includes service pages, WhatsApp enquiry links, a contact page and policy pages.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://aig-global-services.vercel.app",
+    liveUrl: "https://aigglobalservices.com",
     image: "/aig.png",
     result:
       "Six business divisions on one site, with direct WhatsApp enquiries from every page.",
@@ -93,5 +95,14 @@ export const projects: Project[] = [
     liveUrl: "https://kill-time-pied.vercel.app",
     image: "/killtime.png",
     result: "One codebase runs on Android, iOS and the browser.",
+  },
+
+  {
+    title: "RTO (Road to the Owambe)",
+    description:
+      "A 3D open-world road trip across Nigeria: start at home with a fixed budget, travel by bike, bus and roadside cars through all 36 states, and make it back to Lagos for the owambe.",
+    tech: ["Three.js", "Blender", "Tripo", "AI-generated assets"],
+    image: "/owambe.png",
+    status: "In development",
   },
 ];
