@@ -2,6 +2,7 @@ import { projects, testimonials } from "@/data/projects";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa6";
 import EnquiryForm from "@/components/EnquiryForm";
 import Header from "@/components/Header";
+import Reveal from "@/components/Reveal";
 
 import {
   SiTypescript,
@@ -31,15 +32,17 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <p className="text-emerald-400">Hi, I'm Olakunle Ibitola (Jean) 👋</p>
-        <h1 className="mt-3 text-4xl font-bold leading-tight md:text-6xl">
+        <p className="animate-fade-up text-emerald-400">
+          Hi, I'm Olakunle Ibitola (Jean) 👋
+        </p>
+        <h1 className="animate-fade-up fade-delay-1 mt-3 text-4xl font-bold leading-tight md:text-6xl">
           Web & mobile developer building fast, real-world apps.
         </h1>
-        <p className="mt-5 max-w-2xl text-lg text-slate-400">
+        <p className="animate-fade-up fade-delay-2 mt-5 max-w-2xl text-lg text-slate-400">
           I build online stores, business websites and mobile games with React,
           Next.js and TypeScript, for real businesses in Nigeria and beyond.
         </p>
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="animate-fade-up fade-delay-3 mt-8 flex flex-wrap gap-4">
           <a
             href="#projects"
             className="rounded-lg bg-emerald-500 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-400"
@@ -59,57 +62,56 @@ export default function Home() {
       <section id="projects" className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="text-3xl font-bold">Projects</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {projects.map((p) => (
-            <article
-              key={p.title}
-              className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900 p-6"
-            >
-              {p.image ? (
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="mb-4 aspect-[4/3] w-full rounded-xl object-cover object-top"
-                />
-              ) : (
-                <div className="mb-4 flex h-44 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 to-sky-500/20 text-2xl font-bold">
-                  {p.title}
+          {projects.map((p, i) => (
+            <Reveal key={p.title} delay={i * 100}>
+              <article className="flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-900 p-6 transition duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10">
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="mb-4 aspect-[4/3] w-full rounded-xl object-cover object-top"
+                  />
+                ) : (
+                  <div className="mb-4 flex h-44 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 to-sky-500/20 text-2xl font-bold">
+                    {p.title}
+                  </div>
+                )}
+                <h3 className="text-xl font-semibold">{p.title}</h3>
+                <p className="mt-2 flex-1 text-slate-400">{p.description}</p>
+                <p className="mt-2 text-sm text-[#d0a850]">{p.result}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              )}
-              <h3 className="text-xl font-semibold">{p.title}</h3>
-              <p className="mt-2 flex-1 text-slate-400">{p.description}</p>
-              <p className="mt-2 text-sm text-[#d0a850]">{p.result}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {p.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-5 flex gap-4 text-sm font-semibold">
-                {p.liveUrl && (
-                  <a
-                    href={p.liveUrl}
-                    target="_blank"
-                    className="text-emerald-400 hover:underline"
-                  >
-                    Live site →
-                  </a>
-                )}
-                {p.githubUrl && (
-                  <a
-                    href={p.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-4 text-slate-300 underline hover:text-white"
-                  >
-                    GitHub →
-                  </a>
-                )}
-              </div>
-            </article>
+                <div className="mt-5 flex gap-4 text-sm font-semibold">
+                  {p.liveUrl && (
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      className="text-emerald-400 hover:underline"
+                    >
+                      {p.status ? "Try the demo →" : "Live site →"}
+                    </a>
+                  )}
+                  {p.githubUrl && (
+                    <a
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-4 text-slate-300 underline hover:text-white"
+                    >
+                      GitHub →
+                    </a>
+                  )}
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -218,50 +220,52 @@ export default function Home() {
 
       {/* About + stack */}
       <section id="about" className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-3xl font-bold">About me</h2>
+        <Reveal>
+          <h2 className="text-3xl font-bold">About me</h2>
 
-        <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:items-start">
-          {/* Photo */}
-          <img
-            src="/jean.jpg"
-            alt="Photo of Jean"
-            className="h-48 w-48 flex-shrink-0 rounded-full border-4 border-emerald-500/40 object-cover shadow-lg"
-          />
+          <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:items-start">
+            {/* Photo */}
+            <img
+              src="/jean.jpg"
+              alt="Photo of Jean"
+              className="h-48 w-48 flex-shrink-0 rounded-full border-4 border-emerald-500/40 object-cover shadow-lg"
+            />
 
-          {/* Text */}
-          <div>
-            <p className="text-slate-400">
-              I'm a web and mobile developer with a background in law and
-              experience in AI data annotation. I love turning ideas into
-              working products, from business websites, e-commerce sites with
-              payments to mobile games under my studio, Blvckjean Games.
-            </p>
+            {/* Text */}
+            <div>
+              <p className="text-slate-400">
+                I'm a web and mobile developer with a background in law and
+                experience in AI data annotation. I love turning ideas into
+                working products, from business websites, e-commerce sites with
+                payments to mobile games under my studio, Blvckjean Games.
+              </p>
 
-            <h3 className="mt-8 text-xl font-semibold">Tech stack</h3>
-            <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-5">
-              {[
-                { n: "HTML", i: <FaHtml5 /> },
-                { n: "CSS", i: <FaCss3Alt /> },
-                { n: "JavaScript", i: <FaJs /> },
-                { n: "TypeScript", i: <SiTypescript /> },
-                { n: "React", i: <FaReact /> },
-                { n: "Next.js", i: <SiNextdotjs /> },
-                { n: "Tailwind", i: <SiTailwindcss /> },
-                { n: "React Native", i: <FaReact /> },
-                { n: "Expo", i: <SiExpo /> },
-                { n: "Firebase", i: <SiFirebase /> },
-              ].map((s) => (
-                <div
-                  key={s.n}
-                  className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 p-4"
-                >
-                  <span className="text-3xl text-emerald-400">{s.i}</span>
-                  <span className="text-sm">{s.n}</span>
-                </div>
-              ))}
+              <h3 className="mt-8 text-xl font-semibold">Tech stack</h3>
+              <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-5">
+                {[
+                  { n: "HTML", i: <FaHtml5 /> },
+                  { n: "CSS", i: <FaCss3Alt /> },
+                  { n: "JavaScript", i: <FaJs /> },
+                  { n: "TypeScript", i: <SiTypescript /> },
+                  { n: "React", i: <FaReact /> },
+                  { n: "Next.js", i: <SiNextdotjs /> },
+                  { n: "Tailwind", i: <SiTailwindcss /> },
+                  { n: "React Native", i: <FaReact /> },
+                  { n: "Expo", i: <SiExpo /> },
+                  { n: "Firebase", i: <SiFirebase /> },
+                ].map((s) => (
+                  <div
+                    key={s.n}
+                    className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 p-4"
+                  >
+                    <span className="text-3xl text-emerald-400">{s.i}</span>
+                    <span className="text-sm">{s.n}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section id="learning" className="mx-auto max-w-5xl px-6 py-16">
@@ -299,9 +303,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold">Currently building</h2>
         <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold">
-              RTO
-            </h3>
+            <h3 className="text-lg font-semibold">RTO</h3>
             <span className="text-sm text-emerald-400">In progress</span>
           </div>
           <div className="mt-4 h-2 w-full rounded-full bg-slate-800">
@@ -381,33 +383,35 @@ export default function Home() {
 
       {/* Contact */}
       <section id="contact" className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-3xl font-bold">Let's work together</h2>
-        <p className="mt-4 text-slate-400">
-          Open to freelance projects and full-time roles.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4">
-          <a
-            href="mailto:jeanibitola@gmail.com"
-            className="rounded-lg bg-emerald-500 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-400"
-          >
-            Email me
-          </a>
-          <a
-            href="https://wa.me/2347049075581"
-            target="_blank"
-            className="rounded-lg border border-slate-700 px-5 py-3 font-semibold hover:border-slate-500"
-          >
-            WhatsApp
-          </a>
-          <a
-            href="https://github.com/jeanibitola-collab"
-            target="_blank"
-            className="rounded-lg border border-slate-700 px-5 py-3 font-semibold hover:border-slate-500"
-          >
-            GitHub
-          </a>
-        </div>
-        <EnquiryForm />
+        <Reveal>
+          <h2 className="text-3xl font-bold">Let's work together</h2>
+          <p className="mt-4 text-slate-400">
+            Open to freelance projects and full-time roles.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <a
+              href="mailto:jeanibitola@gmail.com"
+              className="rounded-lg bg-emerald-500 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-400"
+            >
+              Email me
+            </a>
+            <a
+              href="https://wa.me/2347049075581"
+              target="_blank"
+              className="rounded-lg border border-slate-700 px-5 py-3 font-semibold hover:border-slate-500"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="https://github.com/jeanibitola-collab"
+              target="_blank"
+              className="rounded-lg border border-slate-700 px-5 py-3 font-semibold hover:border-slate-500"
+            >
+              GitHub
+            </a>
+          </div>
+          <EnquiryForm />
+        </Reveal>
       </section>
 
       <footer className="border-t border-slate-800 py-8 text-center text-sm text-slate-500">

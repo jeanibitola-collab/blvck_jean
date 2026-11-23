@@ -102,7 +102,18 @@ export const projects: Project[] = [
     description:
       "A 3D open-world road trip across Nigeria: start at home with a fixed budget, travel by bike, bus and roadside cars through all 36 states, and make it back to Lagos for the owambe.",
     tech: ["Three.js", "Blender", "Tripo", "AI-generated assets"],
+    liveUrl: "https://road-to-owambe.vercel.app",
     image: "/owambe.png",
     status: "In development",
+  },
+
+    {
+    title: "EstateVerse",
+    description:
+      "An open-world-style estate explorer for real estate companies. Buyers and tenants walk through an estate in first person to see amenities, roads and distances before they buy or rent. Demo based on Gwarinpa Estate, Abuja (unofficial concept).",
+    tech: ["Three.js", "JavaScript", "Blender", "AI-generated assets"],
+    liveUrl: "https://estateverse-swart.vercel.app",
+    image: "/estateverse.png",
+    status: "Concept demo",
   },
 ];
